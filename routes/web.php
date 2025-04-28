@@ -7,10 +7,18 @@ Route::get('/', function () {
 });
 
 
-Route::get('student/{id}/{reg}', function($id, $reg){
-    return 'Student ID '.$id. ' Registration Number '.$reg;
+// Route::get('about-us', function(){
+//     $name = 'Taster2';
+//     $email = 'tasster2@gmail.com';
+
+//     return view('aboutus')->with('name', $name)->with('email', $email);
+//     return view('aboutus', compact('name','email'));
+//     return view('aboutus',['name' => $name, 'email' => $email]);
+// });
+
+Route::get('about-us/{name}/{email}', function($name, $email){
+    return view('aboutus', compact('name', 'email'));
 });
 
-Route::fallback( function(){
-    return 'This page not found! Try again letter';
-});
+// Route::view('contact-us', 'contactus', ['id' => '123', 'email' => 'emailtest.com']);
+Route::view('contact-us/{id}/{email}', 'contactus');
