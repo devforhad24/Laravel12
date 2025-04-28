@@ -7,12 +7,10 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('details')->group(function(){
-    Route::get('student', function(){
-        return 'This is student';
-    })->name('student-details');
-    
-    Route::get('teacher', function(){
-        return 'This is teacher';
-    })->name('teacher-details');
+Route::get('student/{id}/{reg}', function($id, $reg){
+    return 'Student ID '.$id. ' Registration Number '.$reg;
+});
+
+Route::fallback( function(){
+    return 'This page not found! Try again letter';
 });
